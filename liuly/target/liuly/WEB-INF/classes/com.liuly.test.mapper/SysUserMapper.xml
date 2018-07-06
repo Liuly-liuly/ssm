@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liuly.test.mapper.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.liuly.test.dto.SysUser" >
+    <id column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="USER_TYPE" property="userType" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="PASSWORD_ENCRYPTED" property="passwordEncrypted" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="START_ACTIVE_DATE" property="startActiveDate" jdbcType="TIMESTAMP" />
+    <result column="END_ACTIVE_DATE" property="endActiveDate" jdbcType="TIMESTAMP" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="OBJECT_VERSION_NUMBER" property="objectVersionNumber" jdbcType="BIGINT" />
+    <result column="REQUEST_ID" property="requestId" jdbcType="BIGINT" />
+    <result column="PROGRAM_ID" property="programId" jdbcType="BIGINT" />
+    <result column="CREATED_BY" property="createdBy" jdbcType="BIGINT" />
+    <result column="CREATION_DATE" property="creationDate" jdbcType="TIMESTAMP" />
+    <result column="LAST_UPDATED_BY" property="lastUpdatedBy" jdbcType="BIGINT" />
+    <result column="LAST_UPDATE_DATE" property="lastUpdateDate" jdbcType="TIMESTAMP" />
+    <result column="LAST_UPDATE_LOGIN" property="lastUpdateLogin" jdbcType="BIGINT" />
+    <result column="ATTRIBUTE_CATEGORY" property="attributeCategory" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE3" property="attribute3" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE4" property="attribute4" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE5" property="attribute5" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE6" property="attribute6" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE7" property="attribute7" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE8" property="attribute8" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE9" property="attribute9" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE10" property="attribute10" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE11" property="attribute11" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE12" property="attribute12" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE13" property="attribute13" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE14" property="attribute14" jdbcType="VARCHAR" />
+    <result column="ATTRIBUTE15" property="attribute15" jdbcType="VARCHAR" />
+    <result column="LAST_LOGIN_DATE" property="lastLoginDate" jdbcType="TIMESTAMP" />
+    <result column="LAST_PASSWORD_UPDATE_DATE" property="lastPasswordUpdateDate" jdbcType="TIMESTAMP" />
+    <result column="FIRST_LOGIN" property="firstLogin" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="EMPLOYEE_ID" property="employeeId" jdbcType="BIGINT" />
+    <result column="CUSTOMER_ID" property="customerId" jdbcType="BIGINT" />
+    <result column="SUPPLIER_ID" property="supplierId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_TYPE, USER_NAME, PASSWORD_ENCRYPTED, EMAIL, PHONE, START_ACTIVE_DATE, 
+    END_ACTIVE_DATE, STATUS, OBJECT_VERSION_NUMBER, REQUEST_ID, PROGRAM_ID, CREATED_BY, 
+    CREATION_DATE, LAST_UPDATED_BY, LAST_UPDATE_DATE, LAST_UPDATE_LOGIN, ATTRIBUTE_CATEGORY, 
+    ATTRIBUTE1, ATTRIBUTE2, ATTRIBUTE3, ATTRIBUTE4, ATTRIBUTE5, ATTRIBUTE6, ATTRIBUTE7, 
+    ATTRIBUTE8, ATTRIBUTE9, ATTRIBUTE10, ATTRIBUTE11, ATTRIBUTE12, ATTRIBUTE13, ATTRIBUTE14, 
+    ATTRIBUTE15, LAST_LOGIN_DATE, LAST_PASSWORD_UPDATE_DATE, FIRST_LOGIN, DESCRIPTION, 
+    EMPLOYEE_ID, CUSTOMER_ID, SUPPLIER_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.liuly.test.dto.SysUser" >
+    insert into sys_user (USER_ID, USER_TYPE, USER_NAME, 
+      PASSWORD_ENCRYPTED, EMAIL, PHONE, 
+      START_ACTIVE_DATE, END_ACTIVE_DATE, STATUS, 
+      OBJECT_VERSION_NUMBER, REQUEST_ID, PROGRAM_ID, 
+      CREATED_BY, CREATION_DATE, LAST_UPDATED_BY, 
+      LAST_UPDATE_DATE, LAST_UPDATE_LOGIN, ATTRIBUTE_CATEGORY, 
+      ATTRIBUTE1, ATTRIBUTE2, ATTRIBUTE3, 
+      ATTRIBUTE4, ATTRIBUTE5, ATTRIBUTE6, 
+      ATTRIBUTE7, ATTRIBUTE8, ATTRIBUTE9, 
+      ATTRIBUTE10, ATTRIBUTE11, ATTRIBUTE12, 
+      ATTRIBUTE13, ATTRIBUTE14, ATTRIBUTE15, 
+      LAST_LOGIN_DATE, LAST_PASSWORD_UPDATE_DATE, 
+      FIRST_LOGIN, DESCRIPTION, EMPLOYEE_ID, 
+      CUSTOMER_ID, SUPPLIER_ID)
+    values (#{userId,jdbcType=BIGINT}, #{userType,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{passwordEncrypted,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{startActiveDate,jdbcType=TIMESTAMP}, #{endActiveDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{objectVersionNumber,jdbcType=BIGINT}, #{requestId,jdbcType=BIGINT}, #{programId,jdbcType=BIGINT}, 
+      #{createdBy,jdbcType=BIGINT}, #{creationDate,jdbcType=TIMESTAMP}, #{lastUpdatedBy,jdbcType=BIGINT}, 
+      #{lastUpdateDate,jdbcType=TIMESTAMP}, #{lastUpdateLogin,jdbcType=BIGINT}, #{attributeCategory,jdbcType=VARCHAR}, 
+      #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, #{attribute3,jdbcType=VARCHAR}, 
+      #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR}, #{attribute6,jdbcType=VARCHAR}, 
+      #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR}, #{attribute9,jdbcType=VARCHAR}, 
+      #{attribute10,jdbcType=VARCHAR}, #{attribute11,jdbcType=VARCHAR}, #{attribute12,jdbcType=VARCHAR}, 
+      #{attribute13,jdbcType=VARCHAR}, #{attribute14,jdbcType=VARCHAR}, #{attribute15,jdbcType=VARCHAR}, 
+      #{lastLoginDate,jdbcType=TIMESTAMP}, #{lastPasswordUpdateDate,jdbcType=TIMESTAMP}, 
+      #{firstLogin,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{employeeId,jdbcType=BIGINT}, 
+      #{customerId,jdbcType=BIGINT}, #{supplierId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liuly.test.dto.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="userType != null" >
+        USER_TYPE,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="passwordEncrypted != null" >
+        PASSWORD_ENCRYPTED,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="startActiveDate != null" >
+        START_ACTIVE_DATE,
+      </if>
+      <if test="endActiveDate != null" >
+        END_ACTIVE_DATE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="objectVersionNumber != null" >
+        OBJECT_VERSION_NUMBER,
+      </if>
+      <if test="requestId != null" >
+        REQUEST_ID,
+      </if>
+      <if test="programId != null" >
+        PROGRAM_ID,
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY,
+      </if>
+      <if test="creationDate != null" >
+        CREATION_DATE,
+      </if>
+      <if test="lastUpdatedBy != null" >
+        LAST_UPDATED_BY,
+      </if>
+      <if test="lastUpdateDate != null" >
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="lastUpdateLogin != null" >
+        LAST_UPDATE_LOGIN,
+      </if>
+      <if test="attributeCategory != null" >
+        ATTRIBUTE_CATEGORY,
+      </if>
+      <if test="attribute1 != null" >
+        ATTRIBUTE1,
+      </if>
+      <if test="attribute2 != null" >
+        ATTRIBUTE2,
+      </if>
+      <if test="attribute3 != null" >
+        ATTRIBUTE3,
+      </if>
+      <if test="attribute4 != null" >
+        ATTRIBUTE4,
+      </if>
+      <if test="attribute5 != null" >
+        ATTRIBUTE5,
+      </if>
+      <if test="attribute6 != null" >
+        ATTRIBUTE6,
+      </if>
+      <if test="attribute7 != null" >
+        ATTRIBUTE7,
+      </if>
+      <if test="attribute8 != null" >
+        ATTRIBUTE8,
+      </if>
+      <if test="attribute9 != null" >
+        ATTRIBUTE9,
+      </if>
+      <if test="attribute10 != null" >
+        ATTRIBUTE10,
+      </if>
+      <if test="attribute11 != null" >
+        ATTRIBUTE11,
+      </if>
+      <if test="attribute12 != null" >
+        ATTRIBUTE12,
+      </if>
+      <if test="attribute13 != null" >
+        ATTRIBUTE13,
+      </if>
+      <if test="attribute14 != null" >
+        ATTRIBUTE14,
+      </if>
+      <if test="attribute15 != null" >
+        ATTRIBUTE15,
+      </if>
+      <if test="lastLoginDate != null" >
+        LAST_LOGIN_DATE,
+      </if>
+      <if test="lastPasswordUpdateDate != null" >
+        LAST_PASSWORD_UPDATE_DATE,
+      </if>
+      <if test="firstLogin != null" >
+        FIRST_LOGIN,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="employeeId != null" >
+        EMPLOYEE_ID,
+      </if>
+      <if test="customerId != null" >
+        CUSTOMER_ID,
+      </if>
+      <if test="supplierId != null" >
+        SUPPLIER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="passwordEncrypted != null" >
+        #{passwordEncrypted,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="startActiveDate != null" >
+        #{startActiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endActiveDate != null" >
+        #{endActiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="objectVersionNumber != null" >
+        #{objectVersionNumber,jdbcType=BIGINT},
+      </if>
+      <if test="requestId != null" >
+        #{requestId,jdbcType=BIGINT},
+      </if>
+      <if test="programId != null" >
+        #{programId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="creationDate != null" >
+        #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedBy != null" >
+        #{lastUpdatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null" >
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateLogin != null" >
+        #{lastUpdateLogin,jdbcType=BIGINT},
+      </if>
+      <if test="attributeCategory != null" >
+        #{attributeCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null" >
+        #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null" >
+        #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null" >
+        #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null" >
+        #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null" >
+        #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null" >
+        #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null" >
+        #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null" >
+        #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null" >
+        #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null" >
+        #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute14 != null" >
+        #{attribute14,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute15 != null" >
+        #{attribute15,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginDate != null" >
+        #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPasswordUpdateDate != null" >
+        #{lastPasswordUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstLogin != null" >
+        #{firstLogin,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeId != null" >
+        #{employeeId,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="supplierId != null" >
+        #{supplierId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liuly.test.dto.SysUser" >
+    update sys_user
+    <set >
+      <if test="userType != null" >
+        USER_TYPE = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="passwordEncrypted != null" >
+        PASSWORD_ENCRYPTED = #{passwordEncrypted,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="startActiveDate != null" >
+        START_ACTIVE_DATE = #{startActiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endActiveDate != null" >
+        END_ACTIVE_DATE = #{endActiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="objectVersionNumber != null" >
+        OBJECT_VERSION_NUMBER = #{objectVersionNumber,jdbcType=BIGINT},
+      </if>
+      <if test="requestId != null" >
+        REQUEST_ID = #{requestId,jdbcType=BIGINT},
+      </if>
+      <if test="programId != null" >
+        PROGRAM_ID = #{programId,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="creationDate != null" >
+        CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedBy != null" >
+        LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateDate != null" >
+        LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateLogin != null" >
+        LAST_UPDATE_LOGIN = #{lastUpdateLogin,jdbcType=BIGINT},
+      </if>
+      <if test="attributeCategory != null" >
+        ATTRIBUTE_CATEGORY = #{attributeCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        ATTRIBUTE1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        ATTRIBUTE2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        ATTRIBUTE3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null" >
+        ATTRIBUTE4 = #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null" >
+        ATTRIBUTE5 = #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null" >
+        ATTRIBUTE6 = #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null" >
+        ATTRIBUTE7 = #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null" >
+        ATTRIBUTE8 = #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null" >
+        ATTRIBUTE9 = #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null" >
+        ATTRIBUTE10 = #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null" >
+        ATTRIBUTE11 = #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null" >
+        ATTRIBUTE12 = #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null" >
+        ATTRIBUTE13 = #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute14 != null" >
+        ATTRIBUTE14 = #{attribute14,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute15 != null" >
+        ATTRIBUTE15 = #{attribute15,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginDate != null" >
+        LAST_LOGIN_DATE = #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPasswordUpdateDate != null" >
+        LAST_PASSWORD_UPDATE_DATE = #{lastPasswordUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstLogin != null" >
+        FIRST_LOGIN = #{firstLogin,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeId != null" >
+        EMPLOYEE_ID = #{employeeId,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null" >
+        CUSTOMER_ID = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="supplierId != null" >
+        SUPPLIER_ID = #{supplierId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liuly.test.dto.SysUser" >
+    update sys_user
+    set USER_TYPE = #{userType,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD_ENCRYPTED = #{passwordEncrypted,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      START_ACTIVE_DATE = #{startActiveDate,jdbcType=TIMESTAMP},
+      END_ACTIVE_DATE = #{endActiveDate,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=VARCHAR},
+      OBJECT_VERSION_NUMBER = #{objectVersionNumber,jdbcType=BIGINT},
+      REQUEST_ID = #{requestId,jdbcType=BIGINT},
+      PROGRAM_ID = #{programId,jdbcType=BIGINT},
+      CREATED_BY = #{createdBy,jdbcType=BIGINT},
+      CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      LAST_UPDATE_LOGIN = #{lastUpdateLogin,jdbcType=BIGINT},
+      ATTRIBUTE_CATEGORY = #{attributeCategory,jdbcType=VARCHAR},
+      ATTRIBUTE1 = #{attribute1,jdbcType=VARCHAR},
+      ATTRIBUTE2 = #{attribute2,jdbcType=VARCHAR},
+      ATTRIBUTE3 = #{attribute3,jdbcType=VARCHAR},
+      ATTRIBUTE4 = #{attribute4,jdbcType=VARCHAR},
+      ATTRIBUTE5 = #{attribute5,jdbcType=VARCHAR},
+      ATTRIBUTE6 = #{attribute6,jdbcType=VARCHAR},
+      ATTRIBUTE7 = #{attribute7,jdbcType=VARCHAR},
+      ATTRIBUTE8 = #{attribute8,jdbcType=VARCHAR},
+      ATTRIBUTE9 = #{attribute9,jdbcType=VARCHAR},
+      ATTRIBUTE10 = #{attribute10,jdbcType=VARCHAR},
+      ATTRIBUTE11 = #{attribute11,jdbcType=VARCHAR},
+      ATTRIBUTE12 = #{attribute12,jdbcType=VARCHAR},
+      ATTRIBUTE13 = #{attribute13,jdbcType=VARCHAR},
+      ATTRIBUTE14 = #{attribute14,jdbcType=VARCHAR},
+      ATTRIBUTE15 = #{attribute15,jdbcType=VARCHAR},
+      LAST_LOGIN_DATE = #{lastLoginDate,jdbcType=TIMESTAMP},
+      LAST_PASSWORD_UPDATE_DATE = #{lastPasswordUpdateDate,jdbcType=TIMESTAMP},
+      FIRST_LOGIN = #{firstLogin,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      EMPLOYEE_ID = #{employeeId,jdbcType=BIGINT},
+      CUSTOMER_ID = #{customerId,jdbcType=BIGINT},
+      SUPPLIER_ID = #{supplierId,jdbcType=BIGINT}
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </update>
+</mapper>

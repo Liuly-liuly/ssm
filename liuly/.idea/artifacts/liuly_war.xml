@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="liuly:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="liuly.war">
+      <element id="artifact" artifact-name="liuly:war exploded" />
+    </root>
+  </artifact>
+</component>
